@@ -112,6 +112,16 @@
 	<script>
 		// Always apply dark mode
 		document.documentElement.classList.add('dark');
+		// Easter egg
+		console.log(`
+  **   ** 
+ **** *** 
+********* 
+ ******* 
+  ******  
+   ***   
+    *    
+All Cyclists Are Beautiful 💙`);
 	</script>
 </svelte:head>
 
