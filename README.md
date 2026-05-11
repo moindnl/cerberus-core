@@ -14,4 +14,18 @@ Tire pressure calculator for cyclists.
 - **Temperature Tips** - Recommendations for cold and hot conditions
 - **Fully Responsive** - Works on desktop and mobile devices
 
+## Install & Run
+
+```bash
+# Clone the repository
+git clone https://github.com/moindnl/cerberus-core.git
+cd cerberus-core
+
+# Install dependencies
+npm install
+
+# Run on localhost
+npm run dev
+```
+
 Run it on localhost or host it on your own server. I don't care. I build this stuff for fun. Ride on!
