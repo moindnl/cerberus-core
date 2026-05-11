@@ -381,7 +381,7 @@ All Cyclists Are Beautiful`);
 			</div>
 		
 		<!-- Floating Mobile Nav Bar -->
-		<div class="sm:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[85%] max-w-sm bg-white/90 dark:bg-gray-700/90 backdrop-blur-lg border border-gray-300 dark:border-gray-600 rounded-2xl px-4 py-3 z-50">
+		<div class="sm:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[85%] max-w-sm bg-gray-700/90 backdrop-blur-lg border border-gray-600 rounded-2xl px-4 py-3 z-50">
 			<div class="flex justify-around items-center gap-4">
 				<button onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} class="flex flex-col items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors" aria-label="Scroll to top">
 					<Home class="w-5 h-5" />
