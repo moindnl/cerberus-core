@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+/* Apple Design Tokens as CSS Variables */
+:root {
+	--apple-blue: #0071E3;
+	--apple-gray-5: #F2F2F7;
+	--apple-gray-4: #E5E5EA;
+	--apple-gray-3: #D2D2D7;
+	--apple-gray-2: #AEAEB2;
+	--apple-gray-1: #86868B;
+	--apple-text-primary: #1D1D1F;
+	--apple-text-secondary: #515154;
+	--apple-text-tertiary: #86868B;
+}
+
+/* Dark Mode Tokens */
+.dark {
+	--apple-gray-5: #1D1D1F;
+	--apple-gray-4: #2C2C2E;
+	--apple-gray-3: #3A3A3C;
+	--apple-gray-2: #48484A;
+	--apple-gray-1: #636366;
+	--apple-text-primary: #FFFFFF;
+	--apple-text-secondary: #EBEBF0;
+	--apple-text-tertiary: #959599;
+}
+
+/* Map to Tailwind */
+@theme {
+	--font-sans: -apple-system, BlinkMacSystemFont, 'San Francisco', 'SF Pro', system-ui, sans-serif;
+	--color-blue-500: var(--apple-blue);
+	--color-blue-600: var(--apple-blue);
+}
+
+/* Custom styles */
+html {
+	-webkit-font-smoothing: antialiased;
+	font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+input[type="checkbox"] {
+	appearance: none;
+	width: 1.25rem;
+	height: 1.25rem;
+	border: 2px solid var(--apple-gray-3);
+	border-radius: 0.375rem;
+	background: white;
+	cursor: pointer;
+	transition: all 0.15s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+	background: var(--apple-blue);
+	border-color: var(--apple-blue);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 1rem 1rem;
+}
+
+input[type="checkbox"]:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.3);
+}
+
+select {
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2386868B' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+	background-position: right 0.75rem center;
+	background-repeat: no-repeat;
+	background-size: 1.25rem 1.25rem;
+	padding-right: 2.5rem;
+}
