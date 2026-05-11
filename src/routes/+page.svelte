@@ -121,7 +121,7 @@
   ******  
    ***   
     *    
-All Cyclists Are Beautiful 💙`);
+All Cyclists Are Beautiful`);
 	</script>
 </svelte:head>
 
