@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Droplet, Flag, Mountain, BrickWall, TreePine, Bike, AlertTriangle } from 'lucide-svelte';
+	import { Droplet, Flag, Mountain, BrickWall, TreePine, Bike, AlertTriangle, Home, ArrowLeftRight, Share2 } from 'lucide-svelte';
 	
 	// Unit Toggle State
 	let showPsi = $state(false);
@@ -125,8 +125,8 @@ All Cyclists Are Beautiful`);
 	</script>
 </svelte:head>
 
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900 p-4 md:p-6 transition-colors duration-300">
-	<div class="max-w-2xl mx-auto w-full">
+<div class="min-h-screen bg-gray-100 dark:bg-gray-900 p-4 md:p-6 pb-20 transition-colors duration-300 overflow-x-hidden">
+	<div class="max-w-full sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto w-full">
 		
 		<!-- Header -->
 		<div class="text-center mb-6 md:mb-8">
@@ -317,14 +317,14 @@ All Cyclists Are Beautiful`);
 				<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Recommended pressure for <span class="font-medium text-gray-700 dark:text-gray-300">{isRearTire ? 'Rear wheel' : 'Front wheel'}</span></p>
 				
 				<!-- Main Pressure Display -->
-				<div class="relative inline-block mx-auto">
+				<div class="relative w-full mx-auto sm:inline-block">
 					<div class="absolute inset-0 bg-blue-100 dark:bg-blue-900/30 rounded-3xl blur-xl -z-10"></div>
-					<div class="relative bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-3xl px-6 py-4">
+					<div class="relative bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-2xl sm:rounded-3xl px-4 sm:px-6 py-3 sm:py-4">
 						<div class="flex justify-center items-baseline gap-2">
 							<span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-blue-600 dark:text-blue-400 transition-all duration-300" style="transition-property: transform, opacity;">
 								{showPsi ? result.resultPsi.toFixed(1) : result.resultBar.toFixed(1)}
 							</span>
-							<span class="text-2xl sm:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-600 dark:text-gray-300">
+							<span class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-600 dark:text-gray-300">
 								{showPsi ? 'psi' : 'bar'}
 							</span>
 						</div>
@@ -336,7 +336,7 @@ All Cyclists Are Beautiful`);
 				
 				{#if result.warning}
 					<div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg p-3 mt-4" role="alert" aria-live="assertive">
-						<p class="text-amber-800 dark:text-amber-200 text-sm font-medium flex items-center justify-center gap-2">
+						<p class="text-amber-800 dark:text-amber-200 text-sm font-medium text-center flex flex-wrap items-center justify-center gap-2">
 							<AlertTriangle class="w-4 h-4" role="img" aria-hidden="true" />
 							{result.warning}
 						</p>
@@ -345,7 +345,7 @@ All Cyclists Are Beautiful`);
 
 				<!-- Calculation Details -->
 				<div class="mt-8 pt-5 border-t border-gray-200 dark:border-gray-700">
-					<dl class="grid grid-cols-2 gap-3 text-sm">
+					<dl class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-sm">
 						<div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Tire</dt><dd class="text-gray-800 dark:text-gray-200 font-medium">{selectedTire.name}</dd></div>
 						<div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Tubeless</dt><dd class="text-gray-800 dark:text-gray-200 font-medium">{isTubeless || selectedTire.tubeless ? 'Yes' : 'No'}</dd></div>
 						<div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Surface</dt><dd class="text-gray-800 dark:text-gray-200 font-medium">{selectedSurface.name}</dd></div>
@@ -363,21 +363,39 @@ All Cyclists Are Beautiful`);
 
 		<!-- Tips Card -->
 		<div class="bg-gray-50 dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 transition-colors" role="region" aria-labelledby="tips-heading">
-			<h3 id="tips-heading" class="font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
-				<svg class="w-5 h-5 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-hidden="true">
-					<circle cx="12" cy="12" r="10"/>
-					<path d="M12 16v-4M12 8h.01"/>
-				</svg>
-				Tips
-			</h3>
-			<ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 list-disc list-inside" role="list">
-				<li role="listitem">Check pressure before every ride</li>
-				<li role="listitem">Temperature adjustment: Below 15°C +0.1 {showPsi ? 'psi' : 'bar'}, above 25°C -0.1 {showPsi ? 'psi' : 'bar'}</li>
-				{#if !(isTubeless || selectedTire.tubeless)}
-					<li role="listitem">Tubeless tires: 0.2-0.3 {showPsi ? 'psi' : 'bar'} lower than shown</li>
-				{/if}
-			</ul>
-			<p class="text-xs text-amber-600 dark:text-amber-400 mt-3">Note: All values are recommendations. Adjust pressure to your personal preferences and riding conditions.</p>
+				<h3 id="tips-heading" class="font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+					<svg class="w-5 h-5 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-hidden="true">
+						<circle cx="12" cy="12" r="10"/>
+						<path d="M12 16v-4M12 8h.01"/>
+					</svg>
+					Tips
+				</h3>
+				<ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 list-disc list-inside" role="list">
+					<li role="listitem">Check pressure before every ride</li>
+					<li role="listitem">Temperature adjustment: Below 15°C +0.1 {showPsi ? 'psi' : 'bar'}, above 25°C -0.1 {showPsi ? 'psi' : 'bar'}</li>
+					{#if !(isTubeless || selectedTire.tubeless)}
+						<li role="listitem">Tubeless tires: 0.2-0.3 {showPsi ? 'psi' : 'bar'} lower than shown</li>
+					{/if}
+				</ul>
+				<p class="text-xs text-amber-600 dark:text-amber-400 mt-3">Note: All values are recommendations. Adjust pressure to your personal preferences and riding conditions.</p>
+			</div>
+		
+		<!-- Floating Mobile Nav Bar -->
+		<div class="sm:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[85%] max-w-sm bg-gray-900/90 dark:bg-gray-800/90 backdrop-blur-lg border border-gray-700 dark:border-gray-600 rounded-2xl px-4 py-3 z-50">
+			<div class="flex justify-around items-center gap-4">
+				<button onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} class="flex flex-col items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors" aria-label="Scroll to top">
+					<Home class="w-5 h-5" />
+					<span class="text-xs">Top</span>
+				</button>
+				<button onclick={toggleUnit} class="flex flex-col items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors" aria-label="Toggle unit">
+					<ArrowLeftRight class="w-5 h-5" />
+					<span class="text-xs">{showPsi ? 'psi' : 'bar'}</span>
+				</button>
+				<button onclick={() => navigator.share?.({ title: 'TireIQ', text: `Recommended: ${showPsi ? result.resultPsi.toFixed(1) + ' psi' : result.resultBar.toFixed(1) + ' bar'}`, url: window.location.href })} class="flex flex-col items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors" aria-label="Share">
+					<Share2 class="w-5 h-5" />
+					<span class="text-xs">Share</span>
+				</button>
+			</div>
 		</div>
 		
 	</div>
