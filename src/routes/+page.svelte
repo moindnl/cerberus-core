@@ -130,11 +130,11 @@ All Cyclists Are Beautiful`);
 		
 		<!-- Header -->
 		<div class="text-center mb-6 md:mb-8">
-			<h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 flex items-center justify-center gap-3">
+			<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 flex items-center justify-center gap-3">
 				<Bike class="w-9 h-9 text-blue-600 dark:text-blue-400 animate-bounce" role="img" aria-hidden="true" style="animation-duration:1s;animation-iteration-count:1" />
 				TireIQ
 			</h1>
-			<p class="text-blue-600 dark:text-blue-400 font-medium text-base md:text-lg">Be safe. Have fun. Race hard.</p>
+			<p class="text-blue-600 dark:text-blue-400 font-medium text-sm sm:text-base md:text-lg">Be safe. Have fun. Race hard.</p>
 			<p class="text-gray-600 dark:text-gray-400 text-sm md:text-base max-w-md mx-auto mt-2">Optimal tire pressure for your bike</p>
 			
 			<!-- Settings Toggle -->
@@ -242,11 +242,11 @@ All Cyclists Are Beautiful`);
 				<!-- Surface Type -->
 				<div class="w-full">
 					<h2 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Surface</h2>
-					<div class="grid grid-cols-3 md:grid-cols-4 gap-2" role="radiogroup" aria-label="Select surface">
+					<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2" role="radiogroup" aria-label="Select surface">
 						{#each SURFACES as surface}
 							<button 
 								type="button"
-								class="px-3 py-2 rounded-lg transition-all {getSurfaceButtonClass(surface.id)} group relative flex flex-col items-center gap-1 min-h-[64px] hover:scale-105 duration-200"
+								class="px-3 py-2 rounded-lg transition-all {getSurfaceButtonClass(surface.id)} group relative flex flex-col items-center gap-1 min-h-[56px] sm:min-h-[64px] hover:scale-105 duration-200"
 								onclick={() => selectedSurface = surface}
 								aria-pressed={selectedSurface.id === surface.id}
 								role="radio"
@@ -321,10 +321,10 @@ All Cyclists Are Beautiful`);
 					<div class="absolute inset-0 bg-blue-100 dark:bg-blue-900/30 rounded-3xl blur-xl -z-10"></div>
 					<div class="relative bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-3xl px-6 py-4">
 						<div class="flex justify-center items-baseline gap-2">
-							<span class="text-7xl md:text-9xl font-bold text-blue-600 dark:text-blue-400 transition-all duration-300" style="transition-property: transform, opacity;">
+							<span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-blue-600 dark:text-blue-400 transition-all duration-300" style="transition-property: transform, opacity;">
 								{showPsi ? result.resultPsi.toFixed(1) : result.resultBar.toFixed(1)}
 							</span>
-							<span class="text-4xl md:text-5xl font-medium text-gray-600 dark:text-gray-300">
+							<span class="text-2xl sm:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-600 dark:text-gray-300">
 								{showPsi ? 'psi' : 'bar'}
 							</span>
 						</div>
@@ -362,7 +362,7 @@ All Cyclists Are Beautiful`);
 		</div>
 
 		<!-- Tips Card -->
-		<div class="bg-gray-50 dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 transition-colors" role="region" aria-labelledby="tips-heading">
+		<div class="bg-gray-50 dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 transition-colors" role="region" aria-labelledby="tips-heading">
 			<h3 id="tips-heading" class="font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
 				<svg class="w-5 h-5 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-hidden="true">
 					<circle cx="12" cy="12" r="10"/>
