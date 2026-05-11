@@ -13,7 +13,7 @@ Tire pressure calculator for cyclists.
 - **Weight Factor** - Adjusts pressure based on rider weight (40-200kg)
 - **Temperature Tips** - Recommendations for cold and hot conditions
 - **Fully Responsive** - Works on desktop and mobile devices
-- **Mobile Nav Bar** - Floating bottom navigation with liquid glass effect (scroll to top, toggle unit, share)
+- **Mobile Nav Bar** - Floating sticky navigation with liquid glass design (backdrop blur): scroll to top, toggle unit, share
 
 ## Install & Run
 
